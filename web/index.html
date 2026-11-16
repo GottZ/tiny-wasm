@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TINY 2.1 — a transformer for DOS, in your browser</title>
+<meta name="description" content="TINY 2.1, a 367,000-parameter question-answering transformer written for DOS and Turbo C 2.0, compiled to WebAssembly.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>TINY 2.1</h1>
+    <p>A transformer for DOS that fits on a floppy disk — running in your browser.</p>
+  </header>
+
+  <div class="monitor">
+    <div class="tube" id="tube">
+      <canvas id="screen" width="720" height="400" aria-label="TINY text screen, 80 by 25 characters"></canvas>
+      <input id="keys" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Type here">
+      <div class="power" id="power">
+        <p class="prompt">C:\TINY&gt;<span class="caret">_</span></p>
+        <div class="choices">
+          <button type="button" data-run="">TINY</button>
+          <button type="button" data-run="/DEMO">TINY /DEMO</button>
+        </div>
+        <p class="hint" id="hint">Click or press Enter to start. Sound is on: PC speaker and robot voice.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="keyrow" id="keyrow">
+    <button type="button" data-ext="59">F1 Help</button>
+    <button type="button" data-ext="60">F2 Sound</button>
+    <button type="button" data-ext="61">F3 Voice</button>
+    <button type="button" data-ext="62">F4 Creativity</button>
+    <button type="button" data-ext="72">&uarr; Last question</button>
+    <button type="button" data-key="27">Esc Quit</button>
+  </div>
+
+  <section class="about">
+    <p>Ask a question and press Enter: <kbd>what is the capital of peru</kbd>,
+    <kbd>is a whale a fish</kbd>, <kbd>what is 7 times 8</kbd>, <kbd>spell elephant</kbd>,
+    <kbd>tell me a joke</kbd>. It knows about 3,500 facts and makes things up confidently
+    outside of them.</p>
+    <p>This is the original <code>TINY.C</code>, unchanged, compiled to WebAssembly. A small
+    layer stands in for Turbo C's screen, keyboard and PC-speaker routines. The network is
+    the original 380&nbsp;KB <code>TINY.BIN</code>: 4 layers, 96 wide, 8-bit weights.</p>
+    <p>TINY 2.1 is by <a href="https://github.com/WollyMonjac/Tiny-2.1" rel="noopener">WollyMonjac</a>
+    (source, DOS executable and manual there).</p>
+  </section>
+</main>
+<script src="font.js"></script>
+<script src="tiny.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
